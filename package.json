@@ -1,0 +1,40 @@
+{
+  "name": "memoria-espaciodtcmas",
+  "version": "1.0.0",
+  "description": "Sistema para la Transformación Digital de Espacio DTC+ (UTALCA)",
+  "main": "src/index.ts",
+  "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "dev": "npm run clean && tsc && node dist/src/index.js",
+    "build": "npm run clean && tsc",
+    "start": "npm run build && node dist/src/index.js",
+    "dbpush": "npx prisma db push --schema=./src/database/schema.prisma && npx prisma generate --schema=./src/database/schema.prisma"
+  },
+  "keywords": [],
+  "author": "Luis Felipe Zamorano Molina",
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.4",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.16",
+    "@types/pg": "^8.11.10",
+    "nodemon": "^3.1.7",
+    "prisma": "^5.21.1",
+    "prisma-kysely": "^1.8.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.21.1",
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "kysely": "^0.27.4",
+    "pg": "^8.13.1",
+    "postgres": "^3.4.5",
+    "rimraf": "^6.0.1",
+    "superstruct": "^2.0.2"
+  }
+}

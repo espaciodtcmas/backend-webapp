@@ -1,0 +1,26 @@
+datasource db {
+  url= env("DB_URL")
+  provider = "postgresql"
+}
+
+generator kysely {
+  provider = "prisma-kysely"
+  output = "codegen"
+  fileName = "types.ts"
+  enumFileName = "enums.ts"
+}
+
+model region {
+  region_id    Int      @id @default(autoincrement())
+  region_nombre String  @unique
+  region_puntosSvg      String
+  comunas      comuna[]
+}
+
+model comuna {
+  comuna_id       Int      @id @default(autoincrement())
+  comuna_nombre   String   @unique
+  comuna_regionId Int
+  comuna_puntosSvg      String
+  region          region   @relation(fields: [comuna_regionId], references: [region_id])
+}

@@ -1,0 +1,2 @@
+### Obtener todas las regiones
+GET localhost:3000/region/todas
